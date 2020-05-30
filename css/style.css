@@ -23,7 +23,7 @@ img {
   misc styles, nothing to do with CSS variables
 */
 
-body {
+/* body {
   text-align: center;
   background: #193549 url('../img/1007582.jpg') no-repeat center center;
   background-position: center;
@@ -40,4 +40,11 @@ body {
 
 input {
   width: 100px;
+} */
+
+html , body{
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: black;
 }

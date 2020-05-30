@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tic tac toe</title>
+<style>
+.make {
+	display:block;
+  width: 100px;
+  height:100px
+}
+</style>
+</head>
+
+<body>
+<p>&nbsp;</p>
+<table border="1" align="center" width="300" height="300">
+  <tbody>
+    <tr>
+      <td><input type="button" class="make"></td>
+      <td><input type="button" class="make"></td>
+      <td><input type="button" class="make"></td>
+    </tr>
+    <tr>
+      <td><input type="button" class="make"></td>
+      <td><input type="button" class="make"></td>
+      <td><input type="button" class="make"></td>
+    </tr>
+    <tr>
+      <td><input type="button" class="make"></td>
+      <td><input type="button" class="make"></td>
+      <td><input type="button" class="make"></td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+<script type="text/javascript">	
+var inputs = document.querySelectorAll('input');
+var arr = Array.from(inputs)
+var trigger = true;
+function checkWin(arr,input){
+	return  ((arr[0] == input.value)&&(arr[1] == input.value)&&(arr[2] == input.value)) || ((arr[3] == input.value)&&(arr[4] == input.value)&&(arr[5] == input.value)) || ((arr[6] == input.value)&&(arr[7] == input.value)&&(arr[8] == input.value)) || ((arr[0] == input.value)&&(arr[3] == input.value)&&(arr[6] == input.value)) || ((arr[1] == input.value)&&(arr[4] == input.value)&&(arr[7] == input.value)) || ((arr[2] == input.value)&&(arr[5] == input.value)&&(arr[8] == input.value)) || ((arr[0] == input.value)&&(arr[4] == input.value)&&(arr[8] == input.value)) || ((arr[2] == input.value)&&(arr[4] == input.value)&&(arr[6] == input.value))
+};
+for (let i = 0, len = inputs.length; i < len; i++)
+{
+	inputs[i].onclick = function(){
+		if (trigger){
+			inputs[i].value = 'X';
+			inputs[i].style.background = 'yellow';
+			inputs[i].disabled = true;
+			arr[i] = inputs[i].value;
+			if (checkWin(arr,inputs[i])) {
+				alert(`nguoi choi ${inputs[i].value} thang`);
+				arr.filter(x => x !='O' || x!='X');
+				for (i of arr){
+					i.disabled = true
+				}
+				//document.write(`nguoi choi ${inputs[i].value} thang`)
+			}
+			else if (arr.every(e => e =='X' || e == 'O') && !(checkWin(arr,inputs[i].value))) {
+				alert('hoa');
+				//document.write('hoa')
+			}
+			else trigger = false;
+		}
+		else {
+			inputs[i].value = 'O';
+			inputs[i].style.background = 'aqua';
+			inputs[i].disabled = true;	
+			arr[i] = inputs[i].value;
+			if (checkWin(arr,inputs[i])) {
+				alert(`nguoi choi ${inputs[i].value} thang`);
+				arr.filter(x => x !='O' || x!='X');
+				for (i of arr){
+					i.disabled = true
+				};				
+				//document.write(`nguoi choi ${inputs[i].value} thang`)
+			}
+			else if (arr.every(e => e =='X' || e == 'O') && !(checkWin(arr,inputs[i].value))) {	
+				alert('hoa');			
+				//document.write('hoa')
+			}
+			else trigger = !trigger;
+		}
+	} 
+};
+
+</script>
+</html>

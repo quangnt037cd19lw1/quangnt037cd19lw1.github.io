@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>
+      baitap - quangnt037cd19lw1.github.io
+    </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="../css/baitap.css">
+    <style>
+      button {
+        width: 50px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- main -->
+    <div class="container main mt-5">
+      <label id="pro" data-price="1950">iPhone 9</label>
+      <input id="qty"  type="number" />
+      <button onclick="Click()">OK</button>
+      <hr />
+      <h3>Name: <span id="name">?</span></h3>
+      <h3>Amount: <span id="amount">?</span></h3>
+    </div>
+
+
+    <!-- tictactoe game -->
+    <div class="container game">
+      <h2 class="bg-warning text-center">Tictactoe Game</h2>
+      <table class="table d-flex justify-content-center" id="table">
+        <tr>
+          <td><button></button></td>
+          <td><button></button></td>
+          <td><button></button></td>
+        </tr>
+        <tr>
+          <td><button></button></td>
+          <td><button></button></td>
+          <td><button></button></td>
+        </tr>
+        <tr>
+          <td><button></button></td>
+          <td><button></button></td>
+          <td><button></button></td>
+        </tr>
+      </table>
+    </div>
+    <!-- //tictactoe game -->
+    
+    <!-- //main -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+
+      const labelPro = document.querySelector('#pro');
+      const inputQty = document.querySelector('#qty');
+      const spanName = document.querySelector('#name');
+      const spanAmount = document.querySelector('#amount');
+      const button = document.querySelector('.main button');
+
+
+
+
+      function Click (){
+        let price = labelPro.dataset.price;
+        let inputValue = inputQty.value;
+        let kq = parseInt(price)  * parseInt(inputValue);
+        spanName.innerHTML = labelPro.innerHTML;
+        spanAmount.innerHTML = kq;
+      }
+
+      // button.onclick = function{
+      // } 
+
+      // button.addEventListener('click', function{
+      //   alert('hello');
+      // }); 
+      // button.addEventListener('click', Click()); 
+
+
+      // const label = document.querySelector('#pro');
+      // const h3Name = document.querySelector('#name');
+      // h3Name.innerHTML = label.innerHTML;
+
+      // const input = document.querySelector('#qty');
+      // const h3Amount = document.querySelector('#amount');
+      // const btn = document.querySelector('button');
+
+      // var price = label.dataset.price;
+      // btn.addEventListener('click', function(){
+      //   h3Amount.innerHTML = `${parseInt(input.value) * parseInt(price)}`;
+      // });
+      // var price = label.dataset.price;
+      
+
+      // document.getElementById('name').innerHTML = label.innerHTML;
+      // btn.addEventListener('click', event => document.getElementById('amount').innerHTML = `${parseInt(input.value) * parseInt(price)}`);
+
+      // game
+      // const player1 ;
+      // const player2 ;
+      var flag = true;
+      const btns = document.querySelectorAll('#table button');
+      console.log(btns);
+      btns.forEach((btn, index) => {
+        btn.addEventListener('click', function(event) {
+          if (flag){
+            btn.innerHTML = 'x';
+            btn.style.backgroundColor = 'cyan';
+            btn.disabled = true;
+            flag = false;
+          }else {
+            btn.innerHTML = 'y';
+            btn.style.backgroundColor = 'yellow';
+            btn.disabled = true;
+            flag = true;
+          }
+        });
+      });
+      // game 
+    </script>
+  </body>
+</html>

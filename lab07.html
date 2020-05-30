@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>
+      quangnt037cd19lw1.github.io
+    </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+      <div class="container">
+        <h2 class="bg-primary text-center" >Form Đặt Hàng</h2>
+        <form action="get">
+          <div class="form-group">
+            <label for="">Sản Phẩm</label>
+            <input type="text"
+              class="form-control" name="sanpham" id="sanpham" aria-describedby="helpId" placeholder="nhap ten san pham" required>
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
+
+          <div class="form-group">
+            <label for="">Loai</label>
+            <select class="form-control" name="" id="">
+              <option></option>
+              <option></option>
+              <option></option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="">Don gia</label>
+            <input type="text"
+              class="form-control" name="" id="dongia" aria-describedby="helpId" placeholder="nhap ten" required>
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
+
+          <h4>Noi nhan hang</h4>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
+              Noi thanh
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="" id="" value="checkedValue" >
+              Ngoai thanh
+            </label>
+          </div>
+          <div class="form-group d-none" >
+            <label for="">phi van chuyen</label>
+            <input type="text"
+              class="form-control" name="" id="" aria-describedby="helpId" placeholder="" value = "10000" readonly>
+            <small id="helpId" class="form-text text-muted">Help text</small>
+          </div>
+          <hr>
+          <button type="submit" name="btn" id="btn" class="btn btn-primary" btn-lg btn-block">dat mua</button>
+        </form>
+      </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+      const sanpham = document.querySelector('.form-group #sanpham ');
+      const dongia = document.querySelector('form #dongia');
+      const btn = document.querySelector('button#btn');
+      console.log(sanpham);
+      console.log(dongia);
+      console.log(btn);
+
+      btn.addEventListener('click', function(event){
+        if (sanpham.value.length< 1){ 
+          alert('nhap san pham');
+        }
+      });
+      btn.addEventListener('click', function(event){
+        if (isNaN(dongia.value)){ 
+          alert('nhap dong gia');
+        }
+      });
+
+    </script>
+  </body>
+</html>
