@@ -9,11 +9,11 @@
 .controls label {
   text-shadow: 0 0 5px #ff00b5;
 }
-img {
+/* img {
   padding: var(--spacing);
   background: var(--base);
   filter: blur(var(--blur));
-}
+} */
 
 .hl {
   color: var(--base);

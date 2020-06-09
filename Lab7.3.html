@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab7.3</title>
+  <link rel="stylesheet" href="../css/Lab7.3.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  <h2 class="tiltle">Form</h2>
+  <form action="#">
+    <div class="form-group">
+      <label > Họ </label>
+      <input id="ho" type="text">
+      
+    </div>
+    <div class="form-group">
+      <label > Tên </label>
+      <input id="ten" type="text"> </br> </br>
+    </div>
+    <div class="form-group">
+      <label > Ngày Sinh: </label> &emsp; 
+      <label > Ngày:</label> <input class="number" type="number" min="1" max="31" required>
+      <label > Tháng:</label> <input class="number" type="number"  min="1" max="12" required>
+      <label > Năm:</label> <input class="number" type="number" min="1990" max="2025" required > 
+    </div>
+    <div class="form-group">
+      <label> Giới Tính </label> &emsp;  
+      <input id="gender_Male" type="radio"> 
+      <label > Nam</label> &emsp; 
+      <input id="gender_Female" type="radio"> <label > Nữ</label>
+    </div>
+    <div class="form-group">
+      <label  > Số điện thoại: </label>
+    <input type="text">
+    </div>
+    <div class="form-group">
+      <label > Sở Thích: </label> 
+    <input type="checkbox"> <label> Đọc Sách</label>
+    <input type="checkbox"> <label> Xem Phim</label>
+    <input type="checkbox"> <label> Nghe</label> </br> </br>
+    <input type="checkbox"> <label> Đọc Sách</label>
+    <input type="checkbox"> <label> Đọc Sách</label> </br> </br>
+    <input type="checkbox"> <label> Đọc Sách</label> </br> </br>
+    </div>
+    <button onclick="click_dangky()"> Đăng ký</button>
+  </form>
+  <script src="../js/Lab7.3.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -14,6 +14,20 @@
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
+
+    <!-- lab 7 - bai 1 -->
+    <section class="container">
+      <h1>onMouseIn - onMouseOut</h1>
+      <img  src="./img/0.JPG" alt="0">
+      <img  src="./img/0.JPG" alt="0">
+      <img  src="./img/0.JPG" alt="0">
+    </section>
+
+
+    <!-- //lab 7 - bai 1 -->
+
+<!-- bai 2 -->
+<!--     
       <div class="container">
         <h2 class="bg-primary text-center" >Form Đặt Hàng</h2>
         <form action="get">
@@ -27,33 +41,33 @@
           <div class="form-group">
             <label for="">Loai</label>
             <select class="form-control" name="" id="">
-              <option></option>
-              <option></option>
-              <option></option>
+              <option>xin xo</option>
+              <option>xin binh thuong</option>
+              <option>xin</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="">Don gia</label>
             <input type="text"
-              class="form-control" name="" id="dongia" aria-describedby="helpId" placeholder="nhap ten" required>
+              class="form-control" name="" id="dongia" aria-describedby="helpId" placeholder="nhap don gia" required>
             <small id="helpId" class="form-text text-muted">Help text</small>
           </div>
 
           <h4>Noi nhan hang</h4>
           <div class="form-check">
             <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="" id="" value="checkedValue">
+              <input type="radio" class="form-check-input" name="" id="rdoNoiThanh" value="checkedValue" checked>
               Noi thanh
             </label>
           </div>
           <div class="form-check">
             <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="" id="" value="checkedValue" >
+              <input type="radio" class="form-check-input" name="" id="rdoNgoaiThanh" value="checkedValue" >
               Ngoai thanh
             </label>
           </div>
-          <div class="form-group d-none" >
+          <div id="divNgoaiThanh" class="form-group d-none" >
             <label for="">phi van chuyen</label>
             <input type="text"
               class="form-control" name="" id="" aria-describedby="helpId" placeholder="" value = "10000" readonly>
@@ -63,6 +77,7 @@
           <button type="submit" name="btn" id="btn" class="btn btn-primary" btn-lg btn-block">dat mua</button>
         </form>
       </div>
+ -->
 
 
     <!-- Optional JavaScript -->
@@ -75,6 +90,11 @@
       const sanpham = document.querySelector('.form-group #sanpham ');
       const dongia = document.querySelector('form #dongia');
       const btn = document.querySelector('button#btn');
+      const rdoNoiThanh = document.querySelector('#rdoNoiThanh');
+      const rdoNgoaiThanh = document.querySelector('#rdoNgoaiThanh');
+      const divNgoaiThanh = document.querySelector('#divNgoaiThanh');
+      console.log(divNgoaiThanh);
+      console.log(rdoNgoaiThanh);
       console.log(sanpham);
       console.log(dongia);
       console.log(btn);
@@ -86,10 +106,31 @@
       });
       btn.addEventListener('click', function(event){
         if (isNaN(dongia.value)){ 
-          alert('nhap dong gia');
+          alert('dong gia phai la so!');
+        }
+        if (dongia.value.length == 0){
+          alert('nhap dong gia')
         }
       });
+      
+
+      rdoNgoaiThanh.addEventListener('click', function(event){
+        if (rdoNgoaiThanh.checked = true){
+          divNgoaiThanh.classList.remove('d-none');
+          rdoNoiThanh.checked = false;
+        }
+      });
+      rdoNoiThanh.addEventListener('click', function(event){
+        if (rdoNoiThanh.checked == true){
+          divNgoaiThanh.classList.add('d-none');
+          rdoNgoaiThanh.checked = false;
+        }
+      })
+
+
+      
 
     </script>
+    <script src="./js/lab7.js"></script>
   </body>
 </html>
