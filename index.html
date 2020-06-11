@@ -1,120 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>CodePro.vn - CyberSoft.edu.vn </title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quản lý nhân viên</title>
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Bootstrap 4 -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!-- JQuery UI -->
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+
+	<!-- Animate -->
+	<!-- <link rel="stylesheet" href="css/animate.css"> -->
+
+	<!-- My CSS -->
+	<link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap-reboot.css">
+
+	<link rel="stylesheet" href="css/modal.css">
+
+	<link rel="stylesheet" href="css/style4.css">
 
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
 </head>
+
 <body>
 
-	<!-- <div class="container-contact100">
-		<div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
-
-		<div class="contact100-more">
-			<i class="zmdi zmdi-phone-in-talk"></i>
-			(+84) 961.05.10.14
-		</div>
-
-		<div class="wrap-contact100">
-
-
-	<div>
-		 <img src="images/cybersoft.png" alt="Front End CyberSoft" width="40%" />
-		 <span style="padding:20px"></span>
-		 <img src="images/codepro.png" alt="Front End CyberSoft" width="30%"/>
-		
-		<div style="clear:both"></div>
-		<span class="contact100-form-title">
-					TÍNH CƯỚC UBER 
-		</span>
-		<h2>Vui lòng chọn loại xe:</h2>
-		  <ul>
-		  <li class="type">
-		    <input type="radio" name="selector">
-		    <label for="uberX">Uber X</label>
-		    
-		    <div class="check"></div>
-		  </li>
-		  
-		  <li class="type">
-		    <input type="radio" name="selector">
-		    <label for="uberSUV">Uber SUV</label>
-		    <div class="check"></div>
-		  </li>
-		  
-		  <li class="type">
-		    <input type="radio" name="selector">
-		    <label for="uberBlack">Uber Black</label>
-		    <div class="check"></div>
-		  </li>
-		</ul>
-
-	</div>
-		<div style="clear:both;"></div>
-		
-			<form class="contact100-form">
-				<div class="wrap-input100 validate-input" data-validate="Name is required">
-					<h2>Nhập vào số KM </h2>
-					<input class="input100" type="text" name="name" placeholder="Số KM ...">
-					<span class="focus-input100"></span>
-					
-				</div>
-				<div class="wrap-input100 validate-input" data-validate="Name is required">
-					<h2>Nhập thời gian chờ </h2>
-					<input class="input100" type="text" name="name" placeholder="Thời gian chờ  ...">
-					<span class="focus-input100"></span>
-					
-				</div>
-
-				<div class="wrap-contact100-form-btn">
-					<div class="contact100-form-bgbtn"></div>
-					<button type="button" class="contact100-form-btn">
-						TÍNH TIỀN 
-					</button>
-				</div>
-				<div class="wrap-contact100-form-btn">
-					<div class="contact100-form-bgbtn"></div>
-					<button type="button" class="contact100-form-btn" data-toggle="modal" data-target="#exampleModal">
-						IN HÓA ĐƠN  
-					</button>
-				</div>
-			</form>
-			
-			<div style="clear:both"></div>
-			<div id="divThanhTien" class="dongia">
-				<h2>Thành tiền: 
-					<span id="xuatTien" class="xuatTien"> 12345</span> 
-					vnd
-				</h2> 
+	<div class="wrapper">
+		<!-- Sidebar Holder -->
+		<nav id="sidebar">
+			<div class="sidebar-header">
+				<h3>
+					<img src="./Qlogo.png" alt="logo" width="15%" height="15%">
+					uangnt</h3>
+				<strong>BS</strong>
 			</div>
+
+			<ul class="list-unstyled components">
+				<li class="active">
+					<a href="#homeSubmenu">
+						<i class="fa fa-home"></i>
+						Home
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-briefcase"></i>
+						About
+					</a>
+					<a href="#pageSubmenu">
+						<i class="fa fa-files-o"></i>
+						Pages
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-link"></i>
+						Portfolio
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-paperclip"></i>
+						FAQ
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-paper-plane"></i>
+						Contact
+					</a>
+				</li>
+			</ul>
+
+			<ul class="list-unstyled CTAs">
+				<li><a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+				</li>
+				<li><a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a></li>
+			</ul>
+		</nav>
+
+		<!-- Page Content Holder -->
+		<div id="content">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+
+					<div class="navbar-header">
+						<button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+							<i class="glyphicon glyphicon-align-left"></i>
+							<span>Toggle Sidebar</span>
+						</button>
+					</div>
+
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#">Page</a></li>
+							<li><a href="#">Page</a></li>
+							<li><a href="#">Page</a></li>
+							<li><a href="#">Page</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			<!-- main -->
+			<div class="container">
+				<h1 align="center">Assignment Web</h1>
+			</div>
+
+			<!-- card 1 -->
+			<div class="card my-5">
+				<div class="card-header text-uppercase text-center">
+					<h3>
+						đăng kí thành viên
+					</h3>
+				</div>
+				<div class="card-body">
+					<form action="" class="w-50">            
+						<div class="form-group">
+							<label for="">Mã sinh Viên : </label>
+							<input type="text" class="form-control" id="txtMaSV">
+					</div>
+					<div class="form-group">
+							<label for="">Tên sinh Viên : </label>
+							<input type="text" class="form-control" id="txtTenSV">
+					</div>
+					<div class="form-group">
+						<label for="">Email</label>
+						<input type="email" class="form-control" name="mail" id="mail" aria-describedby="emailHelpId" placeholder="">
+					</div>
+
+
+					<div class="form-group">
+						<label for="">Giới tính</label> <br>
+						<div class="border rounded bg-white py-2">
+							<div class="form-check form-check-inline ml-2">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Nam
+								</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+								<label class="form-check-label" for="exampleRadios2">
+									Nữ
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="">Sở thích</label> <br>
+						<div class="border rounded bg-white py-2">
+							<div class="form-check form-check-inline ml-2">
+								<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+								<label class="form-check-label" for="inlineCheckbox1">Đọc sách</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+								<label class="form-check-label" for="inlineCheckbox2">Du lịch</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+								<label class="form-check-label" for="inlineCheckbox3">Âm nhạc</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+								<label class="form-check-label" for="inlineCheckbox3">Ẩm thực</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+								<label class="form-check-label" for="inlineCheckbox3">Khác</label>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+							<label for="">Quốc tịch :</label>
+							<select name="" id="loaiSV" class="form-control">
+								<option>Chọn quốc tịch</option>
+								<option>Việt Nam</option>
+								<option>Đông Lào</option>
+								<option>Đại Việt</option>
+							</select>
+					</div>
+
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">Ghi chú</label>
+						<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+					</div>
+					
+					</form>
+					<a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+				<div class="card-footer text-muted">
+					2 days ago
+				</div>
+			</div>
+			<!-- //card 1 -->
+
+			<!-- card 2  -->
+			<div class="card text-center my-5">
+				<div class="card-header">
+					Featured
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">Special title treatment</h5>
+					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+					<a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+				<div class="card-footer text-muted">
+					2 days ago
+				</div>
+			</div>
+			<!-- card 2  -->
+
+			<!-- //main -->
 		</div>
-	</div> -->
-
-
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
-	<script src="js/map-custom.js"></script>
-<!--===============================================================================================-->
+	</div>
 
 
 
+	<!-- Bootstrap -->
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="js/popper.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+	<!-- Date Picker -->
+	<!-- <script src="js/jquery-ui.min.js"></script> -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="js/datepicker.js"></script>
+
+	<!-- Wow -->
+	<!-- <script src="js/wow.min.js"></script>	
+	<script>
+		new WOW().init();
+	</script>  -->
+
+	<!-- <script src="js/modal.js"></script> -->
+
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#sidebarCollapse').on('click', function () {
+				$('#sidebar').toggleClass('active');
+			});
+		});
+	</script>
+	<script src="./js/NhanVien.js"></script>
+	<script src="./js/ListNhanVien.js"></script>
+	<script src="./js/validation.js"></script>
+	<script src="./js/main.js"></script>
 </body>
+
 </html>
