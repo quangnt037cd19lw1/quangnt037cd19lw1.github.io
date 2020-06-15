@@ -21,3 +21,6 @@
 	background-color: transparent;       
 }
 
+table th {
+  text-align: center;
+}

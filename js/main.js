@@ -1,101 +1,90 @@
-const listNhanVien = new ListNhanVien();
-const validation = new Validation();
+// bai 2
+const btn_dangKy = document.getElementById('dangKy');
 
-function getE(id){
-  return document.getElementById(id);
-}
+btn_dangKy.addEventListener('click', function(){
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-// obj btn
-const btnThem    = getE('btnThem');
-const btnThemNV  = getE('btnThemNV');
-const btnCapNhat = getE('btnCapNhat');
+  const txtMaSV = document.getElementById('txtMaSV');
+  const txtTenSV = document.getElementById('txtTenSV');
+  const mail = document.getElementById('mail');
+  const input_radioGender = document.querySelectorAll('.form-check-input[type="radio"]');
+  const input_chkFavors = document.querySelectorAll('.form-check-input[type="checkbox"]');
+  const quocTich = document.getElementById('quocTich');
+  const ghiChu = document.getElementById('ghiChu');
+  ghiChu.maxLength = 2;
+
+  if(txtMaSV.value == ''){
+    alert('maSV khong dc de trong');
+    // txtMaSV.classList.add('bg-danger');
+  }
+  if(txtTenSV.value == ''){
+    alert('tenSv khong dc de trong');
+  }
+  if(mail.value == ''){
+    alert('email khong dc de trong');
+  }
+  if(!(mail.value.match(mailformat))){
+    alert('email phai dung dinh dang');
+  }
+  if(!(input_chkFavors[0].checked || input_chkFavors[1].checked ||  input_chkFavors[2].checked || input_chkFavors[3].checked || input_chkFavors[4].checked)){
+    alert('chon it nhat 1 so thich');
+  }
+  if(quocTich.selectedIndex == 0 ){
+    alert('moi ban chon quoc gia');
+  }
+  if(ghiChu.value.length >= ghiChu.maxLength){
+    alert('200 nha b ei!');
+    ghiChu.value = '';
+  }
+  else{
+    alert('dang ky thanh cong');
+  }
+});
 // 
+// bai 3
+const checkboxes = document.querySelectorAll('tr input[type="checkbox"]');
+const soLuong = document.querySelectorAll('tr input[type="text"]');
+const donGia = document.querySelectorAll('tbody tr td.donGia');
+const thanhTien = document.querySelectorAll('tbody tr td.thanhTien');
+const tong = document.querySelector('tr td.tong');
+tong.innerHTML = '0';
 
-btnThem.addEventListener('click', function(event){
-  btnCapNhat.style.display = 'none';
+thanhTien.forEach(function(item, index, array){
+  item.innerHTML = 0;
 });
 
-btnThemNV.addEventListener('click', function(event){
-  // lay value 6 input nhap vao
-  const maNV   = getE('msnv').value;
-  const tenNV  = getE('name').value;
-  const email  = getE('email').value;
-  const pass   = getE('password').value;
-  const date   = getE('datepicker').value;
-
-  const chucvu = getE('chucvu').value;
-
-  const tbMaNV    = getE('tbMaNV');
-  const tbTen     = getE('tbTen');
-  const tbEmail   = getE('tbEmail');
-  const tbMatKhau = getE('tbMatKhau');
-  const tbNgay    = getE('tbNgay');
-  const tbChucVu  = getE('tbChucVu');
-
-  var isValid = true;
-  isValid &= validation.kiemTraRong(maNV, tbMaNV, 'maNV khong duoc rong');
-
-  isValid &= validation.kiemTraRong(tenNV, tbTen, 'tenNV khong duoc rong') && validation.kiemTraDoDaiKyTu(tenNV, 4, 11, tbMaNV, 'do dai ky tu 4-10 ') && validation.kiemTraChuoi(tenNV, tbMaNV, 'ki tu phai bat dau bang ki tu /^[A-Za-z]');
-
-  isValid &= validation.kiemTraRong(email, tbEmail, 'email khong duoc rong') && validation.kiemTraEmails(email, tbEmail, 'email khong dung dinh dang');
-
-  isValid &= validation.kiemTraRong(pass, tbMatKhau, 'password khong duoc rong');
-
-  isValid &= validation.kiemTraRong(date, tbNgay, 'date khong duoc rong');
-
-  isValid &= validation.kiemTraChucVu(chucvu, tbChucVu, 'moi chon chuc vu');
-
-
-  if(isValid){
-    createTable();
-  }
-
-
-  const NV     = new NhanVien(maNV, tenNV, email, pass, date, chucvu);
-  listNhanVien.addNV(NV);
-  console.log(NV);
-  console.log(listNhanVien);
+soLuong.forEach(function(item, index, array){
+  item.value = 0;
+  item.addEventListener('input', function(event){
+    thanhTien[index].innerHTML = act_thanhTien(donGia[index].innerHTML, soLuong[index].value).toString();
+    tong.innerHTML = tinhTong(thanhTien);
+  });
 });
 
-function createTable(){
-  const tableDanhSach = getE('tableDanhSach');
-  tableDanhSach.innerHTML = '';
-
-  for(var i=0; i< listNhanVien.listNV.length; i++){
-    var tagTR = document.createElement('tr');
-
-    var td_maNV = document.createElement('td');
-    var td_tenNV = document.createElement('td');
-    var td_email = document.createElement('td');
-    var td_date = document.createElement('td');
-
-    td_maNV.innerHTML = listNhanVien.listNV[i].maNV;
-    td_tenNV.innerHTML = listNhanVien.listNV[i].tenNV;
-    td_email.innerHTML = listNhanVien.listNV[i].email;
-    td_date.innerHTML = listNhanVien.listNV[i].date;
-    td_chucvu.innerHTML = listNhanVien.listNV[i].chucvu;
-
-    tagTR.appendChild(td_maNV);
-    tagTR.appendChild(td_tenNV);
-    tagTR.appendChild(td_email);
-    tagTR.appendChild(td_date);
-    tagTR.appendChild(td_chucvu);
-
-    tableDanhSach.appendChild(tagTR);
-
-// cach 2 - append phai reset tbody, inner k phai reset
-    var contentHTML = '';
-    listNhanVien.listNV.map(function(item, index, arr){
-      contentHTML += `
-        <tr>
-          <td>${item.maNV}</td>
-          <td>${item.tenNV}</td>
-          <td>${item.email}</td>
-          <td>${item.date}</td>
-          <td>${item.chucvu}</td>
-        </tr>
-      `;
-    });
-    tableDanhSach.innerHTML = contentHTML;
+checkboxes.forEach(function(item, index, array){
+  var test = item.checked = false;
+  if(test == false){
+    soLuong[index].disabled = true; 
   }
+  item.addEventListener('change', function(event){
+    if(item.checked == false){
+      soLuong[index].disabled = true;
+    }else{
+      soLuong[index].disabled = false;
+    }
+  });
+});
+//
+
+// 
+function act_thanhTien(donGia = 0, soLuong = 0){
+  return parseInt(donGia) * parseInt(soLuong);
 }
+function tinhTong(thanhTien){
+  let total = 0;
+  thanhTien.forEach(function(item, index, array){
+    total += parseInt(item.innerHTML);
+  });
+  return total;
+}
+// 
