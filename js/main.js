@@ -12,10 +12,12 @@ btn_dangKy.addEventListener('click', function(){
   const quocTich = document.getElementById('quocTich');
   const ghiChu = document.getElementById('ghiChu');
   ghiChu.maxLength = 2;
+  let isValid = true;
+
 
   if(txtMaSV.value == ''){
-    alert('maSV khong dc de trong');
-    // txtMaSV.classList.add('bg-danger');
+  alert('maSV khong dc de trong');
+  // txtMaSV.classList.add('bg-danger');
   }
   if(txtTenSV.value == ''){
     alert('tenSv khong dc de trong');
@@ -37,7 +39,10 @@ btn_dangKy.addEventListener('click', function(){
     ghiChu.value = '';
   }
   else{
-    alert('dang ky thanh cong');
+    isValid = false;
+    if(isValid){
+      alert('dang ky thanh cong');
+    }
   }
 });
 // 
