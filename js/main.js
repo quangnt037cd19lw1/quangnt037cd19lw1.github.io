@@ -47,6 +47,7 @@ btn_dangKy.addEventListener('click', function(){
 });
 // 
 // bai 3
+var listSanPham = new ListSanPham()
 const checkboxes = document.querySelectorAll('tr input[type="checkbox"]');
 const soLuong = document.querySelectorAll('tr input[type="text"]');
 const donGia = document.querySelectorAll('tbody tr td.donGia');
@@ -93,3 +94,35 @@ function tinhTong(thanhTien){
   return total;
 }
 // 
+const hangHoa = document.querySelectorAll('.hangHoa');
+const sapXepGia = document.querySelector('#sapXepGia');
+hangHoa.forEach(function(item, index, array){
+  var sp = new SanPham(item.innerHTML, donGia[index].innerHTML);
+  listSanPham.addSanPham(sp);
+});
+
+
+
+sapXepGia.addEventListener('change', function(event){
+  if(sapXepGia.selectedIndex===1){
+    var min2Max = listSanPham.arrSanPham.sort(function(a, b) {
+      return parseInt(a.donGia) - parseInt(b.donGia);
+    });
+    hangHoa.forEach(function(item, index, array){
+      item.innerHTML = min2Max[index].hangHoa
+      donGia[index].innerHTML = min2Max[index].donGia;
+    });
+  }
+  else if(sapXepGia.selectedIndex===2){
+    var max2Min = listSanPham.arrSanPham.sort(function(a, b) {
+      return parseInt(b.donGia) - parseInt(a.donGia);
+    });
+    hangHoa.forEach(function(item, index, array){
+      item.innerHTML = max2Min[index].hangHoa
+      donGia[index].innerHTML = max2Min[index].donGia;
+    });
+  }
+  else{
+    alert('chon muc gia!');
+  }
+});
