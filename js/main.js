@@ -97,9 +97,10 @@ function tinhTong(thanhTien){
 const hangHoa = document.querySelectorAll('.hangHoa');
 const sapXepGia = document.querySelector('#sapXepGia');
 hangHoa.forEach(function(item, index, array){
-  var sp = new SanPham(item.innerHTML, donGia[index].innerHTML);
+  var sp = new SanPham(item.innerHTML, donGia[index].innerHTML, soLuong[index].innerHTML, thanhTien[index].innerHTML);
   listSanPham.addSanPham(sp);
 });
+console.log(listSanPham);
 
 
 
@@ -111,6 +112,8 @@ sapXepGia.addEventListener('change', function(event){
     hangHoa.forEach(function(item, index, array){
       item.innerHTML = min2Max[index].hangHoa
       donGia[index].innerHTML = min2Max[index].donGia;
+      soLuong[index].value =0;
+      thanhTien[index].innerHTML = 0;
     });
   }
   else if(sapXepGia.selectedIndex===2){
@@ -120,6 +123,8 @@ sapXepGia.addEventListener('change', function(event){
     hangHoa.forEach(function(item, index, array){
       item.innerHTML = max2Min[index].hangHoa
       donGia[index].innerHTML = max2Min[index].donGia;
+      soLuong[index].value = 0;
+      thanhTien[index].innerHTML = 0;
     });
   }
   else{
