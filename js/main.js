@@ -1,6 +1,14 @@
 // bai 2
 const btn_dangKy = document.getElementById('dangKy');
 
+function kiemTraRong(id, message) {
+  if(id === ''){
+    alert(message);
+    return false;
+  }
+  return true;
+}
+
 btn_dangKy.addEventListener('click', function(){
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -12,19 +20,15 @@ btn_dangKy.addEventListener('click', function(){
   const quocTich = document.getElementById('quocTich');
   const ghiChu = document.getElementById('ghiChu');
   ghiChu.maxLength = 2;
+
   let isValid = true;
 
+  isValid &= kiemTraRong(txtMaSV.value, 'maSV khong dc de trong');
+  isValid &= kiemTraRong(txtTenSV.value, 'tenSv khong dc de trong');
+  isValid &= kiemTraRong(mail.value, 'email khong dc de trong');
 
-  if(txtMaSV.value == ''){
-  alert('maSV khong dc de trong');
-  // txtMaSV.classList.add('bg-danger');
-  }
-  if(txtTenSV.value == ''){
-    alert('tenSv khong dc de trong');
-  }
-  if(mail.value == ''){
-    alert('email khong dc de trong');
-  }
+
+
   if(!(mail.value.match(mailformat))){
     alert('email phai dung dinh dang');
   }
@@ -38,11 +42,8 @@ btn_dangKy.addEventListener('click', function(){
     alert('200 nha b ei!');
     ghiChu.value = '';
   }
-  else{
-    isValid = false;
-    if(isValid){
-      alert('dang ky thanh cong');
-    }
+  if(isValid){
+    alert('dang ky thanh cong');
   }
 });
 // 

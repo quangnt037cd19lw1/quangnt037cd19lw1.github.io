@@ -13,7 +13,6 @@ function plusSlides(n){
 }
 // next|previous control
 function showSlides(n){
-  var i;
   var slides = document.querySelectorAll('.mySlides');
   var dots = document.querySelectorAll('.dot');
   if(n > slides.length){
