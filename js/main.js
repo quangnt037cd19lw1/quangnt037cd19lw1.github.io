@@ -33,12 +33,15 @@ btn_dangKy.addEventListener('click', function(){
 
   if(!(mail.value.match(mailformat))){
     alert('email phai dung dinh dang');
+    isValid = false;
   }
   if(!(input_chkFavors[0].checked || input_chkFavors[1].checked ||  input_chkFavors[2].checked || input_chkFavors[3].checked || input_chkFavors[4].checked)){
     alert('chon it nhat 1 so thich');
+    isValid = false;
   }
   if(quocTich.selectedIndex == 0 ){
     alert('moi ban chon quoc gia');
+    isValid = false;
   }
   if(ghiChu.value.length >= ghiChu.maxLength){
     alert('200 nha b ei!');
