@@ -2,7 +2,9 @@
 const btn_dangKy = document.getElementById('dangKy');
 
 function kiemTraRong(id, message) {
-  if(id === ''){
+  if(id.value === ''){
+    id.style.background= 'yellow';
+    id.setAttribute('placeholder', message);
     alert(message);
     return false;
   }
@@ -23,9 +25,9 @@ btn_dangKy.addEventListener('click', function(){
 
   let isValid = true;
 
-  isValid &= kiemTraRong(txtMaSV.value, 'maSV khong dc de trong');
-  isValid &= kiemTraRong(txtTenSV.value, 'tenSv khong dc de trong');
-  isValid &= kiemTraRong(mail.value, 'email khong dc de trong');
+  isValid &= kiemTraRong(txtMaSV, 'maSV khong dc de trong');
+  isValid &= kiemTraRong(txtTenSV, 'tenSv khong dc de trong');
+  isValid &= kiemTraRong(mail, 'email khong dc de trong');
 
 
 
